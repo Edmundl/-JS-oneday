@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>原型的概念</title>
+    </head>
+    <body>
+        <script>
+            //原型就是指 构造函数prototype属性所引用的对象
+
+            function Car(type){
+                this.type=type;
+            }
+
+            // console.log(Car.prototype);
+
+            Car.prototype.run =function(){
+                console.log('running');
+            };
+            
+            var c1=new Car('SUV');
+            var c2=new Car('小汽车');
+
+            c1.run();
+            c2.run();
+            console.log(c1.run === c2.run);
+
+            //增加产地属性 继承
+            Car.prototype.location='上上气';
+
+            console.log(c1.location);
+            console.log(c2.location);
+
+            //问题
+            //对象的所有方法都写在原型上，而属性都通过构造函数初始化
+            c1.color='red';
+            console.log(c1.color);
+            console.log(c2.color);
+
+            c1.location='下下气';
+            console.log(c1.location);
+            console.log(c2.location);
+        </script>
+    </body>
+</html>

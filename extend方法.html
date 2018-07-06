@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>extend方法</title>
+    </head>
+    <body>
+        <script>
+            var a={
+                name:'g'
+            };
+            var b={
+                print:function(){
+                    console.log('hello,js');
+                }
+            };
+            //b._proto_.age=18;
+            //将parent对象上的成员复制给child
+            function extend(child,parent){
+                for(var pro in parent){
+                    //child[pro]=parent[pro];//会将parent对象的原型上的成员一起拿过来
+                    if(parent.hasOwnProperty(pro)){
+                        child[pro]=parent[pro];
+                    }
+                }
+            }
+
+            extend(a,b);
+
+            // a.print();
+            // console.log(a._proto_===b._proto_);
+
+            function F(){};
+            function FF(){
+                this.name='ff';
+                this.print=function(){
+                    console.log(this.name);
+                }
+            };
+            FF.prototype.flag = 'flag';
+
+            var f1=new F();
+            var f2=new FF();
+            extend(f1,f2);
+            console.log(f2.flag);
+            console.log(f1.flag);
+        </script>
+    </body>
+</html>

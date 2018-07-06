@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>面向对象操作dom</title>
+    </head>
+    <body>
+        <div>div1</div>
+        <div>div2</div>
+        <div>div3</div>
+        <div>div4</div>
+        <script>
+             //操作页面上div的样式-给div添加背景颜色
+
+              //面向过程
+            // var divs=document.getElementsByTagName('div');
+            // for(var i=0;i<=divs.length;i++){
+            //      divs[i].style.backgroundColor='red';
+            // }
+
+            //面向对象
+            var domOpr = {
+                getDiv:function(){
+                    var divs=document.getElementsByTagName('div');
+                    return divs;
+                },
+                setStyle:function(){
+                    var divs=this.getDiv();
+                    for(var i=0;i<divs.length;i++){
+                        divs[i].style.backgroundColor='blue';
+                    }
+                }
+            };
+            domOpr.setStyle();
+        </script>
+    </body>
+</html>

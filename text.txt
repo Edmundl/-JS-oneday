@@ -1,0 +1,50 @@
+继承
+
+传统的面向对象语言，继承是类与类之间的关系
+
+而在js中，由于没有类的概念。对象与对象之间的关系
+
+在js中，继承就是指使一个对象有权去访问另一个对象的能力。
+比如：对象a能访问对象b的成员（属性和方法），那么，对象a就继承对象b
+
+原型
+
+类继承
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+}
+function Student(name,age,num){
+    Person.call(this,name,age);
+    this.num=num;
+}
+function Teacher(name,age,code,pay){
+    Person.call(this,name,age);
+    this.code=code;
+    this.pay=pay
+}
+Person.call();//继承Person方法中的name和age属性
+
+组合继承
+使用原型+类的方式实现继承
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+}
+function Student(name,age,num){
+    Person.call(this,name,age);
+    this.num=num;
+}
+
+Student.prototype.learn = function(){
+
+}
+或
+Student.prototype = {
+    learn:function(){
+
+    }
+};
+
+extend方法
+从jq源码中抽取出来的，在ES6中有一个同样功能的方法——object.assign();

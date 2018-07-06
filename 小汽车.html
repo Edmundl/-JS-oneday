@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>面向过程和面向对象</title>
+    </head>
+    <body>
+        <script>
+            //一辆小汽车以60km/h，在一条长度为1200km的公路上行驶，问多长时间跑完？
+
+            //1.面向过程
+            // var re=1200/60;
+            // console.log(re);
+
+            //2.面向对象
+
+            var road={
+                length:1200
+            };
+
+            var car={
+                speed:60,
+                color:'blue',
+                road:road,//调用road对象,为了调用road对象中的属性
+                run:function(){
+                    return this.road.length/this.speed;
+                }
+            };
+
+            var car1={
+                speed:40,
+                color:'red',
+                run:function(){
+
+                }
+            }
+
+            var r=car.run();
+            console.log(r);
+            //面向对象的优势：
+            //1：提高了代码的可维护性
+            //2：提高了代码的可扩展性
+            //3.代码复用
+
+        </script>
+    </body>
+</html>

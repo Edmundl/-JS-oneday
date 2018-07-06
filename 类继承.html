@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>类继承</title>
+    </head>
+    <body>
+        <script>
+            function Person(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            function Student(name,age,num){
+                Person.call(this,name,age); //call继承Person类，从而使用其中的name和age属性
+                this.num=num;
+            }
+            var lilei=new Student('李磊',18,151116311);
+            console.log(lilei);
+        </script>
+    </body>
+</html>
