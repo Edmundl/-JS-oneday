@@ -1,0 +1,10 @@
+1.创建执行环境
+	{x:1,y:2,a:undefined}
+	（1）创建活动对象（ActivedObject） 简称AO 函数定义的参数，函数声明，函数内部定义的变量
+	（2）创建arguments对象。
+	（3）绑定this
+		如果函数没有绑定给任何对象，this->window
+		如果当做构造函数来使用的话，this->实例
+		绑定某个对话 var obj={};obj.fn=foo;this->object
+		通过call apply bind方法改变了this,那么这三个方法的第一个参数就是this绑定值了
+	（4）执行函数内部代码

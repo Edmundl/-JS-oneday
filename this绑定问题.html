@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>this绑定问题</title>
+    </head>
+    <body>
+        <script>
+            function fn(){
+				//window
+				console.log(this)
+				//console.log(this==window)
+				console.log(this==obj)
+			}
+// 			fn();//this->window
+// 			var f=new fn();
+			
+			var obj={}
+			obj.f=fn;
+			obj.f();
+        </script>
+    </body>
+</html>
