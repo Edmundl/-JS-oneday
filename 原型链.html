@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>原型链</title>
+    </head>
+    <body>
+        <script>
+            function Person(){}
+			var p=new Person();
+			console.log(Person.prototype);
+			console.log(p);
+			
+			//p -> Person.prototype -> Object.prototype -> null
+			//数组
+			var arr=[];
+			//arr构造函数是Array,默认原型的原型就是 Object.prototype
+			//arr -> Array.prototype -> Object.prototype -> null
+			var obj={};
+			//obj -> Object.prototype -> null
+			
+			function Student(){};
+			Student.prototype = Person.prototype;
+			var lilei=new Student();
+			//lilei的原型链:lilei -> Student.prototype(Person.prototype) -> Object.prototype -> null
+			
+			function Teacher(){}
+			Teacher.prototype=new Person();
+			var jiang=new Teacher();
+			//jiang -> Teacher.prototype -> Person.prototype -> Object.prototype -> null
+        </script>
+    </body>
+</html>
